@@ -1,0 +1,79 @@
+/* "Should understand the concept of Sorting
+- Selection sort.
+- Bubble sort.
+- Insertion sort.
+- Merge sort.
+- Quick sort.
+- Heap sort.
+- Counting sort.
+- Radix sort."
+ */
+=======Selection sort=============
+
+//selection sort is a simple and efficient sorting algorithm that works by repeatedly selecting the smallest(or largest)
+//and swap it with the first element of the unsorted part
+// 64,25,12,22,11 (then find min element from 25,12,22,64) compare with 64 if small then swap that position
+//* 11,25,12,22,64 (then find min element from 12,22,64) compare with 25 if small then swap that position
+//*11,12,25,22,64 ( then find min element from 22,64 ) compare with 25
+//11,12,22,25,64 ( then find min element from 64 ) compare with 25 no swap
+
+
+//64,25,12,22,11
+
+=========Bubble sort===========O(n^2)
+In this algorithm,
+
+traverse from left and compare adjacent elements and the higher one is placed at right side.
+In this way, the largest element is moved to the rightmost end at first.
+This process is then continued to find the second largest and place it and so on until the data is sorted.
+
+
+======Insertion sort========O(N^2)
+
+To sort an array of size N in ascending order
+iterate over the array and compare the current element (key)
+to its predecessor, if the key element is smaller than its predecessor,
+compare it to the elements before. Move the greater elements one position
+up to make space for the swapped element.
+
+==============================
+
+=====Merge Sort=====================
+
+Merge sort is a recursive algorithm that continuously
+splits the array in half until it cannot be further divided
+i.e., the array has only one element left (an array with one
+element is always sorted). Then the sorted subarrays are merged
+into one sorted array.
+
+
+=======Quick sort==========
+
+The logic is simple, we start from the leftmost
+element and keep track of the index of smaller (or equal)
+elements as i. While traversing, if we find a smaller element,
+we swap the current element with arr[i]. Otherwise, we ignore the
+current element.
+
+=====Heap Sort============
+
+------------------------------------------------
+Heap sort is a comparison-based sorting technique based on
+Binary Heap data structure. It is similar to the selection sort where
+we first find the minimum element and place the minimum element at the
+beginning. Repeat the same process for the remaining elements.
+----------------------------------------------------------------------------------
+
+First convert the array into heap data structure using heapify,
+then one by one delete the root node of the Max-heap and replace it with the last node in the heap and then heapify the root of the heap. Repeat this process until size of heap is greater than 1.
+
+Build a heap from the given input array.
+Repeat the following steps until the heap contains only one element:
+Swap the root element of the heap (which is the largest element) with
+the last element of the heap.
+Remove the last element of the heap (which is now in the correct position).
+Heapify the remaining elements of the heap.
+The sorted array is obtained by reversing the order of the elements
+in the input array.
+
+............................................................................

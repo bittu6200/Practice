@@ -1,0 +1,13 @@
+What is binary tree ?
+
+types of binary tree
+1.Complete ( 0,2 at most i leaf left 0 1)
+2.perfect binary tree
+3.full BT ( 0, 2)
+
+................................
+traversal of bT
+1.in
+2.pre
+3.post
+..............................

@@ -1,0 +1,258 @@
+graph : network of nodes
+
+delhi --------- haryana-----------raj
+
+delhi,haryanan,ra --> nodes
+................................
+Application
+1.Maps   Algorithm: shortest path
+2 social network :  friend -> represemt nodes
+3 Delivery Network  : amazon, flipcart => path decidesb in sach wqay that min distance / time,,, School bus also
+
+..............................................................
+Algorithm : shortest pathvertex = Node
+............................
+Edge
+unidirection (edge) A------------------>B
+bi-direction/Undirectional (edge) A<----------------->B // A--------------B
+................................................
+types of graph on the basic of Edge
+1. Directed graph
+2. Undirected graph
+....................................
+weighted: associated with edge
+
+types of graph on the basic of weighted
+1. weighted graph    // A-----------10-----------B
+2. un-weighted graph //A----------------------B
+
+........................................................
+how to represent a Graph in a code
+1.Adjacency List
+2.Adjancency Matrix
+3.Edge List
+4.2d Matrix
+....................
+Adjancey List : List of List
+edge ka list bnate h
+lis1,list2,list3==> converted into single list
+
+vertex-wise
+--------------------
+  0--2-3
+     |/
+     1
+vertex - wise
+0-->{0,2}  0=sourse, 2=destination
+1-->{1,2},{1,3}
+2-->{2,0},{2,1},{2,3}
+3-->{3,1},{3,2}
+
+common list :
+----------------
+| 0 | 1 | 2 | 3 |  ===>  list of vertex
+-----------------
+each vertex contain =>
+0 =0-->{0,2}  = list1 of Edge
+1 = 1-->{1,2}=edge,{1,3}=edge =list2 of Edges
+2 = 2-->{2,0},{2,1},{2,3}   = list3  of Edges
+3 = 3-->{3,1},{3,2}  =list4 of Edges
+
+=ArrayList<Edge> Graph[V]
+
+size of array = number of vertex
+
+method 1common list ===========arraylist of arrayList
+- array of arrayList
+step 1: to make an array whose size is equal to number of vertex
+step 2: store the edge information
+sted 3: each index to store list of edge// har ek index me list store krna usi edge ki
+...........................
+int arr[] ==  type of integer ==[_|_|_|_|_] hr ek index pe integer value hogi
+
+ArrayList<Edge> graph[v] ==type of ArrayList ==[_|_|_|_|_] hr ek index pe ArrayList of Edge value hogi // v=number of vertex
+Edge==///
+
+class Edge{
+int Source
+int Destination
+}
+
+ArrayList<Edge> Graph[V]
+
+Graph[0].add(new Edge(0,1))
+Graph[1].add(new Edge(1,2))
+Graph[1].add(new Edge(1,3))
+Graph[2]..add(New Edge(
+
+////////////////////////////////////////
+no neighbour
+:
+why adjancy list advantage:
+
+1. no of edge of a paricular vertex same number is neighbour
+2. no exta space is used
+
+print the neighbour 2 vertex/node
+---------------------------------------------
+for(int i=0 to graph[2].size()){
+Edge e=graph[2].get(i)
+print(e.dis)
+}
+////////////////////////////////////////////////////////
+
+weighted graph and undirected graph
+.......................................................
+0-(2)--2-(-1)-3
+   (10)|/(0)
+       1
+0-->{0,2,2}  0=sourse, 2=destination 2=weight //   (src,dest,weight)
+1-->{1,2,10},{1,3,0}
+2-->{2,0,2},{2,1,10},{2,3,-1}
+3-->{3,1,0},{3,2,-1}
+
+class Edge{
+int Source
+int Destination
+int weight
+}
+
+...................................
+print the neighbour 2 vertex/node
+---------------------------------------------
+for(int i=0 to graph[2].size()){
+Edge e=graph[2].get(i)
+print(e.dis +", "+ e.weight)
+}
+..............................................................................
+
+Adjacency Matrix
+=======================
+
+----------------------------------------
+    0   1   2   3
+0   0   0   1   0
+1   0   0   1   1
+2   1   1
+3
+
+list me v=2
+        x   O(x)  linear time/ constant
+matrix me nebihour ko print krne k sb ko iterate krne pdte h
+            O(v) lgegi
+
+
+Edge List :    it is used when need to sort the edge
+====================
+Edges{(0,2),(1,2),(1,3),(2,3)}   Egfe list =4
+then how to implement
+        =ArrayList
+        =linkedlist
+
+Minimum spinning tree (MST) = edge sort
+..................................................
+Question :
+{0,2,2},{1,2,10}, {1,3,0},{2,3,-1}
+
+sort according to edge then ===>
+{2,3,-1},{1,3,0},{0,2,2},{1,2,10}
+.................................................
+
+
+Implicit Graph (Implicit means internally pahle se h)
+=====================================================
+
+suppose i have 2D array (n*m)
+
+                 |
+      (i,j-1)<---x-->(i,j+1)
+                 |
+
+(i,j)  ---> (n-1,m-1)
+
+.......................................................
+Graph Traversals
+---------------
+BFS   === Queue data structure
+: Go to immediate neighbors first
+    1 - 3
+  /     |  \
+/       |     5 -6
+0       |   /
+ \      | /
+   2 -  4
+
+  0,1,2,3,4,5,6  ==BFS order
+
+  indirectly BFS say  level order traversal
+
+  0,1,2,3,4,5,6 (think top to button = (0) level1,  (1 to 2)--level2, (3 to 4) ---level3, (5)---level4, (6)---level5)
+
+  Queue [0|__|__|__________________________________]
+  front                                              rear
+
+  ==================================================
+  while(!q.empty()){
+
+  int curr=q.remove();
+  if ( vis{curr]==F){
+  step1 currect node nikala means print kiya   // print(curr)
+  step2 current k liye uske visted ko true kr dena // vist(curr) true
+  step3 current node k neighbour ko queue ko add kr dena  // curr node neighbour add kr dena
+
+  for(int i=0;to graph[curr].size){
+  Edge e=graph[curr].get(i)
+  q.add(e.dist)// neighbour
+  }
+  }
+
+
+  visted Array [_f_|__________________________________] size =v no of vertex
+  Boolean hr jagah false h means doesnot visted
+
+ ---------------------------------------
+ DFS(Depth First search) // Recursive way  // jaha pahuch gae use neighbour ko print kraeya   O(v+E)
+ : Keep going to the 1st neighbour
+
+ bool vist[]
+  void dfs(grapgh,curr,vis[])
+  {
+    print(curr)
+    vist[curr]=true
+    for(int i=0 to graph[curr].get(i))
+        {
+            Edge e= graph[curr].get(i)
+           if(vist[i]==false)
+            dfs(graph,e.dist,vis)
+        }
+  }
+
+//////////////////////////////////////
+all paths from sourse to destination
+----------------------------------------------
+dfs(graph,vist[],curr,string path,tar) {
+    if(curr==tar){
+    print(path)
+     rerturn
+   }
+  for(int i=0 to graph[curr].size())
+    {
+        Edge e=graph[curr ].get(i)
+            if(vis[e.dist]==f)
+            {
+            vist[curr]=T
+            }
+        dfs(graph,vis,e.dist,path+e.dist,tar)
+        vis[curr]=F
+    }
+    }
+}
+-------------------------------------------------------------
+
+
+
+
+
+
+
+
