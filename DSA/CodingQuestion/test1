@@ -1,0 +1,50 @@
+1- Find whether a given string is a palindrome if yes then write code for it also if it is not a palindrome check if it can be made a palindrome by removing one or two characters.
+
+
+2- find the second minimum element in the array and also tell what to do if want to find the 7th minimum element.
+
+3- About previous project experiences and questions based on that. Like the kind of database used etc
+map ,
+flatMap,
+HOF,
+tailRec,
+Future
+Option,
+List,
+Pure Function.,
+closure,
+
+Future :
+
+Await.ready and result
+Promise
+
+no. of nodes in bT
+height of node in BT
+
+idea
+------------------
+-while iterating the mark position of each character
+-At i'th character , check the previous occurance and decide the start of the substring accoundingly
+i=0
+pwke
+start =-1 // a occurance 2 or more times then update the value of start
+
+write a method that takes string as input and returns length of longest non repeating substring.
+def longestNonReaptingsubstring(input: String):Int={
+var maxLength=0
+var start=0 //right
+val charIndexmap=mutable.map[Char,Int]()
+for(end<-0 until input.length){
+ if(charIndexmap.contains(input(end)) && charIndexmap(input(end))>=start){
+ start=charIndexmap(input(end))+1
+ }
+ charIndexmap(input(end))=endmaxLength=maxLength.max(end-start+1)
+ }
+ maxLength
+ }
+ val input="abcabcdbb"
+ val result=longestNonReaptingsubstring(input)
+ println(s"the length of longest non repeating substring is" $result)
+ O(n)
+
